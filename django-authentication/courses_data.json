@@ -1,0 +1,73 @@
+[
+    {
+        "model": "course.creator",
+        "pk": 1,
+        "fields": {
+            "name": "Ram Thapa",
+            "info": "I am a developer",
+            "email": "ramthapa@gmail.com"
+        }
+    },
+    {
+        "model": "course.creator",
+        "pk": 2,
+        "fields": {
+            "name": "shyam karki",
+            "info": "I am a backend developer",
+            "email": "shyamkarki@gmail.com"
+        }
+    },
+    {
+        "model": "course.creator",
+        "pk": 3,
+        "fields": {
+            "name": "Hari KC",
+            "info": "I am backend developer too",
+            "email": "harikc@gmail.com"
+        }
+    },
+    {
+        "model": "course.course",
+        "pk": 1,
+        "fields": {
+            "title": "Introduction to Python",
+            "description": "A brief introduction to python",
+            "price": "100",
+            "currency": "NPR",
+            "creator": 1
+        }
+    },
+    {
+        "model": "course.course",
+        "pk": 2,
+        "fields": {
+            "title": "Introduction to JS",
+            "description": "A brief intro to JS",
+            "price": "100",
+            "currency": "NPR",
+            "creator": 2
+        }
+    },
+    {
+        "model": "course.course",
+        "pk": 3,
+        "fields": {
+            "title": "Introduction to Django",
+            "description": "A beginner level introduction to Django programming",
+            "price": "500",
+            "currency": "NPR",
+            "creator": 1
+        }
+    },
+    {
+        "model": "course.course",
+        "pk": 4,
+        "fields": {
+            "title": "Introduction to git",
+            "description": "A brief introduction to git",
+            "price": "200",
+            "currency": "NPR",
+            "creator": 1
+        }
+    }
+]
