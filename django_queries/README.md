@@ -1,5 +1,4 @@
-# About
-This django project demonstrates use of prefetch_related() and select_related() to speed up fetching data 
+This django project demonstrates use of `prefetch_related()` and `select_related()` to speed up fetching data 
 
 
 # To run this code
@@ -17,7 +16,7 @@ pip install -r requirements.txt
 python manage.py migrate
 ```
 
-3. Populate dummy data
+3. Populate database with dummy data
 ```bash
 python manage.py loaddata data/initial_data_1000.json
 ```
