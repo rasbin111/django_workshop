@@ -56,7 +56,7 @@ class CreatorMutation(graphene.Mutation):
         except Exception as e:
             return CreatorMutation(creator=None, ok=False)
 
-class UpdateCreatorMuation(graphene.Mutation):
+class UpdateCreatorMutation(graphene.Mutation):
     class Arguments:
         name = graphene.String(required=True)
         email = graphene.String()
@@ -74,18 +74,34 @@ class UpdateCreatorMuation(graphene.Mutation):
             creator.save()
             return UpdateCreatorMuation(creator=creator)
 
+        except Creator.DoesNotExist:
+            return GraphQLError(f"UpdateError: Does not exists ")
+        
         except Exception as e:
-            return UpdateCreatorMuation(creator=None)
+            return GraphQLError(f"UpdateError: {str(e)}")
 
-        # except Creator.DoesNotExist:
-        #     return GraphQLError(f"UpdateError: Does not exists ")
-        #
-        # except Exception as e:
-        #     return GraphQLError(f"UpdateError: {str(e)}")
+class DeleteCreatorMutation(graphene.Mutation):
+    class Arguments:
+        id = graphene.ID()
+    message = graphene.String()
+
+    def mutate(self, info, id):
+        try:
+            creator = Creator.objects.get(id=id)
+            creator.delete()
+            return DeleteCreatorMutation(message="Creator deleted")
+        except Creator.DoesNotExist:
+            return GraphQLError(f"UpdateError: Does not exists ")
+        
+        except Exception as e:
+            return GraphQLError(f"UpdateError: {str(e)}")
+
 
 class Mutation(graphene.ObjectType):
     create_creator = CreatorMutation.Field()
-    update_creator = UpdateCreatorMuation.Field()
+    update_creator = UpdateCreatorMutation.Field()
+    delete_creator = DeleteCreatorMutation.Field()
+    
 
 
 
