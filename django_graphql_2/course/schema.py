@@ -89,7 +89,7 @@ class DeleteCreatorMutation(graphene.Mutation):
         try:
             creator = Creator.objects.get(id=id)
             creator.delete()
-            return DeleteCreatorMutation(message="Creator deleted")
+            return DeleteCreatorMutation(message=f"Creator with id: {id} deleted")
         except Creator.DoesNotExist:
             return GraphQLError(f"UpdateError: Does not exists ")
         
