@@ -1,6 +1,7 @@
 import graphene
 from graphene_django import DjangoObjectType
 from graphql import GraphQLError
+from graphql_jwt.decorators import login_required
 
 
 from .models import Course, Creator
@@ -45,6 +46,7 @@ class CreatorMutation(graphene.Mutation):
     ok = graphene.Boolean()
     creator = graphene.Field(CreatorType)
 
+    @login_required
     def mutate(self, info, name, email, creator_info=None):
         try:
             creator = Creator.objects.create(
@@ -66,13 +68,18 @@ class UpdateCreatorMutation(graphene.Mutation):
 
     def mutate(self, info, name, email=None, c_info=None):
         try:
+            user = info.context.user
+            print("User: ", user)
+        except:
+            pass
+        try:
             creator = Creator.objects.get(name=name)
             if email:
                 creator.email = email
             if c_info:
                 creator.info = c_info
             creator.save()
-            return UpdateCreatorMuation(creator=creator)
+            return UpdateCreatorMutation(creator=creator)
 
         except Creator.DoesNotExist:
             return GraphQLError(f"UpdateError: Does not exists ")
