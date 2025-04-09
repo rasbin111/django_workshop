@@ -14,9 +14,9 @@ class Creator(models.Model):
 
 
 class Course(models.Model):
-    title = models.CharField(max_length=100, blank=False)
+    title = models.CharField(max_length=100, blank=False, unique=True)
     description = models.TextField()
-    price = models.CharField(max_length=7)
+    price = models.PositiveIntegerField()
     currency = models.CharField(max_length=10)
     creator = models.ForeignKey(Creator, on_delete=models.CASCADE, blank=False)
 
