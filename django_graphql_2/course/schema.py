@@ -19,10 +19,20 @@ class CourseType(DjangoObjectType):
 
 class Query(graphene.ObjectType):
     courses = graphene.List(CourseType)
+    course_by_id = graphene.Field(CourseType, id=graphene.Int()) # arugment must be declared here 
     creator_by_name = graphene.Field(CreatorType, name=graphene.String(required=True))
 
     def resolve_courses(self, info):
         return Course.objects.all()
+
+    @login_required
+    def resolve_course_by_id(self, info, id):
+        try:
+            course = Course.objects.get(id=id)
+            return course 
+
+        except Exception as e:
+            return Exception(f"Error: {str(e)}")
 
     def resolve_creator_by_name(self, info, name):
         try:
