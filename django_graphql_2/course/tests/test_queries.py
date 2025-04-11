@@ -35,8 +35,8 @@ class CoursesListTestCase(GraphQLTestCase):
         )
 
     def test_course_deletion(self):
-        return 
-        
+        pass
+
     def test_course_list(self):
         response = self.query(
             '''
