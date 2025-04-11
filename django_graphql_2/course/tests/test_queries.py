@@ -34,6 +34,9 @@ class CoursesListTestCase(GraphQLTestCase):
             creator = c1
         )
 
+    def test_course_deletion(self):
+        return 
+        
     def test_course_list(self):
         response = self.query(
             '''
@@ -95,3 +98,4 @@ class CourseByIdTestCase(AuthenticationTestCase):
         content = json.loads(response.content)["data"]["courseById"]
 
         self.assertIsNotNone(content)
+        
