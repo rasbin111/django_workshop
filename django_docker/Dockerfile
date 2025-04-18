@@ -12,4 +12,4 @@ RUN chmod +x ./wait_for_it.sh ./docker_entrypoint.sh
 
 ENTRYPOINT [ "./docker_entrypoint.sh" ]
 
-CMD ["sh", "-c", "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"]
+CMD ["sh", "-c", "python manage.py runserver 0.0.0.0:8000"]
