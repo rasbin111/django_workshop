@@ -9,7 +9,7 @@ To stop and remove docker container
 sudo docker compose down 
 ```
 
-To delete volume too
+To delete volume too (i.e, persistent data is deleted). So, its dangerous
 ```bash
 sudo docker compose down -v
 ```
