@@ -22,6 +22,7 @@ services:
   web:
     build: .
     container_name: docker-django
+    restart: always
     ports: 
       - "8000:8000"
     depends_on:
