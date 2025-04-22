@@ -50,3 +50,7 @@ django.request WARNING 2025-04-22 13:27:14,128 log 44803 133783854196416 Bad Req
 django.request WARNING 2025-04-22 13:27:25,021 log 44803 133783854196416 Bad Request: /graphql/
 django.request WARNING 2025-04-22 13:27:52,516 log 44803 133783854196416 Bad Request: /graphql/
 django.request WARNING 2025-04-22 13:29:30,545 log 45260 140600495089344 Bad Request: /graphql/
+django.request WARNING 2025-04-22 13:48:17,110 log 45260 140600495089344 Not Found: /chat/
+django.request WARNING 2025-04-22 13:48:17,208 log 45260 140600495089344 Not Found: /favicon.ico
+django.request WARNING 2025-04-22 13:50:28,789 log 45260 140600495089344 Bad Request: /graphql/
+django.request WARNING 2025-04-22 13:50:33,409 log 45260 140600495089344 Bad Request: /graphql/
