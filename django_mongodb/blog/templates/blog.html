@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+    <head> </head>
+
+    <body> 
+        <div>
+        {% for medicine in medicines %}
+            <section>
+                <p> {{medicine.common_name}}</p>
+                <p> {{medicine.category}}</p>
+            </section>
+        {% endfor %}
+        <div>
+    </body>
+</html>
