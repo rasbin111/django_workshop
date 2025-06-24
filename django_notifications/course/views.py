@@ -1,21 +1,20 @@
-from django.shortcuts import render
-from asgiref.sync import async_to_sync
-from channels.layers import get_channel_layer
-from rest_framework import status
-from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from channels.layers import get_channel_layer
+from asgiref.sync import async_to_sync
 
 
-class NotificationsSendAPIView(APIView):
-    permission_classes = (AllowAny, )
+class NotifyUserView(APIView):
+    permission_classes = [IsAuthenticated]
 
-    def get(self, request):
+    def post(self, request):
+        message = request.data.get("message", "Default message")
         channel_layer = get_channel_layer()
         async_to_sync(channel_layer.group_send)(
-            "general", {
-                "type": "send_info_to_user_group",
-                "text": {"status": "done"}
-            }
-        )
-        return Response({"status": True}, status=status.HTTP_200_OK)
+            "user",
+            {
+            "type": "send.notifications",
+            "message": message
+        })
+        return Response({"status": "Notification sent"})

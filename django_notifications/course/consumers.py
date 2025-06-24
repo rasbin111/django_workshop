@@ -1,36 +1,32 @@
 import json 
 
+from channels.generic.websocket import AsyncWebsocketConsumer
 
-from asgiref.sync import async_to_sync
-from channels.generic.websocket import WebsocketConsumer
+class NotificationConsumer(AsyncWebsocketConsumer):
 
-class NotificationConsumer(WebsocketConsumer):
+    async def connect(self):
 
-    def connect(self):
-        self.user_name = self.scope["user"]
-        self.user_group_name = f"chat_{self.user_name}"
-        async_to_sync(self.channel_layer.group_add)(self.user_group_name, self.channel_name)
-        self.accept()
-    
-    def disconnect(self, close_code):
-        async_to_sync(self.channel_layer.group_discard)(self.user_group_name, self.channel_name)
-    
-    def receive(self, text_data):
-        text_data_json = json.loads(text_data)
+        self.group_name = "user"
+        print(self.group_name)
+        await self.channel_layer.group_add(self.group_name, self.channel_name)
+        await self.accept()
+
+    async def disconnect(self, code):
+        await self.channel_layer.group_discard(self.group_name, self.channel_name)
         
-        async_to_sync(self.channel_layer.group_send)(
-            self.user_group_name, {
-                "type": "notifications.message",
-                "message": text_data_json
-            }
-        )
-    
-    def send_info_to_user_group(self, event):
-        message = event["text"]
-        self.send(text_data=json.dumps(message))
+    async def receive(self, text_data=None, bytes_data=None):
+        text_data_json = json.loads(text_data)
+        message = text_data_json["message"]
+        await self.channel_layer.group_send(self.group_name, {
+            "type": "send.notifications",
+            "message": message
+        })
 
-    def notifications_message(self, event):
-        message = event["message"]
-
-        # Send message to websocket 
-        self.send(text_data=json.dumps({"message": message}))
+    async def send_notifications(self, event):
+        await self.send(text_data=json.dumps({
+            "type": "notification",
+            "message": event["message"]
+        }))
+        
+        
+        

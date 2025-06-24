@@ -1,7 +1,7 @@
 from django.urls import path
 
-from .views import NotificationsSendAPIView
+from course.views import NotifyUserView
 
 urlpatterns = [
-    path("notifications/", NotificationsSendAPIView.as_view()),
+    path("notify/", NotifyUserView.as_view()),
 ]

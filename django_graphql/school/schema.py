@@ -1,7 +1,7 @@
 import graphene
 import graphql_jwt
 from graphene_django.types import DjangoObjectType
-from graphql_jwt.decorators import login_required
+# from graphql_jwt.decorators import login_required
 
 from .models import Student, Teacher, Course
 
@@ -57,4 +57,4 @@ class Query(graphene.ObjectType):
         except:
             return None
 
-schema = graphene.Schema(query=Query)
+schema = graphene.Schema(query=Query, mutation=Mutation)
