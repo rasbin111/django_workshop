@@ -128,7 +128,9 @@ REST_FRAMEWORK = {
         'course-list': '100/hour',
         'course-detail': '100/hour'
 
-    }
+    },
+    # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    # 'PAGE_SIZE': 10,
 }
 
 SIMPLE_JWT = {
