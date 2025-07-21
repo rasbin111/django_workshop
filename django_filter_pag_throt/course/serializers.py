@@ -10,7 +10,8 @@ class CourseSerailizer(serializers.ModelSerializer):
 
 
 class CourseEnrollmentSerializer(serializers.ModelSerializer):
-
+    course = serializers.CharField(source="course.title")
+    
     class Meta:
         model = CourseEnrollment
         fields = "__all__"
