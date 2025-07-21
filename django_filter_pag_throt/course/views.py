@@ -2,8 +2,8 @@ from rest_framework.status import HTTP_200_OK
 from rest_framework import generics
 from rest_framework import viewsets
 from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
+# from rest_framework.response import Response
+# from rest_framework.permissions import IsAuthenticated
 
 from course.models import Course, CourseEnrollment
 from course.serializers import CourseSerailizer, CourseEnrollmentSerializer
@@ -20,7 +20,9 @@ class CourseListView(APIView):
         paginator = ItemListPagination()
         result_page = paginator.paginate_queryset(courses, request)
         serializer = CourseSerailizer(result_page, many=True)
-        return paginator.get_paginated_response(serializer.data)
+        response = paginator.get_paginated_response(serializer.data)
+        response.status_code = HTTP_200_OK
+        return response
 
 
 class CourseDetailView(generics.RetrieveAPIView):
