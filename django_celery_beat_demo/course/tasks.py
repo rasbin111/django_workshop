@@ -2,7 +2,23 @@ from course.models import Course
 from celery import shared_task
 import openpyxl
 import os
+import time
+from core.celery import  app as celery_app
 
+@celery_app.task(name="addition_task")
+def add(x, y):
+    time.sleep(20)
+    return x + y
+
+@shared_task(name="subtraction_task")
+def sub(x, y):
+    time.sleep(10)
+    return x - y
+
+@shared_task
+def clear_session_cache(id):
+    print("Session cached cleared: ", id)
+    return id
 
 @shared_task
 def calculateCollectedAmount():

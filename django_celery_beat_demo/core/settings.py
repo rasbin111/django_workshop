@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'course',
+    'django_celery_results',
     # 'django_celery_beat',
 ]
 
@@ -124,5 +125,16 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CELERY_TIMEZONE = "Asia/Kathmandu"
-CELERY_BROKER_URL = 'redis://localhost:6379/0'
-# CELERY_RESULT_BACKEND = "redis://localhost:6379"
+CELERY_BROKER_URL = 'redis://localhost:6379/0' # similar to redis://localhost:6379
+# CELERY_RESULT_BACKEND = "redis://localhost:6379/0" # similar to redis://localhost:6379
+CELERY_RESULT_BACKEND = "django-db"
+CELERY_RESULT_EXTENDED = True # gives more information about task in django admin
+
+# For scheduling task
+CELERY_BEAT_SCHEDULE = {
+    "every-10-seconds": {
+        "task": "course.tasks.clear_session_cache",
+        "schedule": 10,
+        "args": ("1111111", )
+    }
+}

@@ -17,6 +17,12 @@
             </li>
         </ul>
     </nav>
+    <hr/>
+    {% if result.id %}
+        <p> Task ID: {{result.id}}</p>
+        <a href="{% url 'check-result' result.id %}"> Check Result </a>
+    {% endif %}
+    <hr/>
     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt deleniti quia doloribus saepe magni. Nobis doloribus dignissimos, adipisci, harum optio reiciendis, itaque deleniti magnam aliquam in natus necessitatibus commodi vel aliquid odio quae corrupti est totam voluptatibus voluptas ratione explicabo qui neque? Tempore dolore aperiam quod laboriosam consequatur sequi blanditiis.</p>
     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt deleniti quia doloribus saepe magni. Nobis doloribus dignissimos, adipisci, harum optio reiciendis, itaque deleniti magnam aliquam in natus necessitatibus commodi vel aliquid odio quae corrupti est totam voluptatibus voluptas ratione explicabo qui neque? Tempore dolore aperiam quod laboriosam consequatur sequi blanditiis.</p>
     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt deleniti quia doloribus saepe magni. Nobis doloribus dignissimos, adipisci, harum optio reiciendis, itaque deleniti magnam aliquam in natus necessitatibus commodi vel aliquid odio quae corrupti est totam voluptatibus voluptas ratione explicabo qui neque? Tempore dolore aperiam quod laboriosam consequatur sequi blanditiis.</p>
