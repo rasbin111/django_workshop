@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'course',
     'django_celery_results',
-    # 'django_celery_beat',
+    'django_celery_beat',
 ]
 
 MIDDLEWARE = [
@@ -130,11 +130,16 @@ CELERY_BROKER_URL = 'redis://localhost:6379/0' # similar to redis://localhost:63
 CELERY_RESULT_BACKEND = "django-db"
 CELERY_RESULT_EXTENDED = True # gives more information about task in django admin
 
-# For scheduling task
-CELERY_BEAT_SCHEDULE = {
-    "every-10-seconds": {
-        "task": "course.tasks.clear_session_cache",
-        "schedule": 10,
-        "args": ("1111111", )
-    }
-}
+# For scheduling task - method 1
+# CELERY_BEAT_SCHEDULE = {
+#     "every-10-seconds": {
+#         "task": "course.tasks.clear_session_cache",
+#         "schedule": 10,
+#         "args": ("1111111", )
+#     }
+# }
+
+# For scheduling task - method 2 on core/celery.py
+
+# For scheduling task - method 3
+CELRY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"

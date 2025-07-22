@@ -21,6 +21,11 @@ def clear_session_cache(id):
     return id
 
 @shared_task
+def clear_redis_key(key):
+    print("Redis key cleared: ", key)
+    return key
+
+@shared_task
 def calculateCollectedAmount():
     courses = Course.objects.all()
     courses_collection = {}
