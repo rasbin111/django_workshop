@@ -142,4 +142,4 @@ CELERY_RESULT_EXTENDED = True # gives more information about task in django admi
 # For scheduling task - method 2 on core/celery.py
 
 # For scheduling task - method 3
-CELRY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
+CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
