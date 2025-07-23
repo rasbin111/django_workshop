@@ -1,35 +1,30 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from celery.result import AsyncResult
-from django_celery_beat.models import PeriodicTask, IntervalSchedule
-from .tasks import add, count_courses
 
+from .tasks import  add, sub
 
-def course_home(request):
-    result = add.delay(20, 30)
+def index(request):
+    # print("results: ")
+    # result1 = add.delay(10, 20)
+    # print("result 1: ", result1)
+    # result2 = sub.apply_async(args=[80, 10])
+    # print("result 2: ", result2)
+    result = add.delay(10, 30)
+    return render(request, "course/home.html", {"result": result})
 
-    return HttpResponse(f"Task ID: {result.id}")
+def about(request):
+    print("results: ")
+    return render(request, "course/about.html")
 
+def contact(request):
+    print("results: ")
+    return render(request, "course/contact.html")
 
-def check_task_status(request, task_id):
+def check_result(request, task_id):
     result = AsyncResult(task_id)
-
-    if result.ready():
-        return HttpResponse(f"Task Result: {result.result}")
-    else:
-        return HttpResponse(f"Task is still running")
-
-def run_periodic_tasks(request):
-    schedule, _ = IntervalSchedule.objects.get_or_create(
-        every=10,
-        period=IntervalSchedule.SECONDS,
-    )
-
-    periodic_task, _ = PeriodicTask.objects.get_or_create(
-        name="Count Courses",
-        task="course.tasks.count_courses",
-        interval=schedule,
-    )
-
-    return HttpResponse("Periodic Task Created")    
-      
+    # print(result.ready())
+    # print(result.successful())
+    # print(result.failed())
+    # print(result.get()) # blocks the exection of other part of program, using get directly like this
+                        # removes advantage of using celery
+    return render(request, "course/result.html", {"result": result})

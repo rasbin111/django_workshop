@@ -1,8 +1,11 @@
-from django.urls import path
 
-from .views import course_home, check_task_status, run_periodic_tasks
+from django.urls import path
+from course import views
+
 urlpatterns = [
-    path("task/", course_home),
-    path("task/<str:task_id>/", check_task_status),
-    path("periodic_task/", run_periodic_tasks),
+    path('', views.index, name="home-page"),
+    path('about/', views.about, name="about-page"),
+    path('contact/', views.contact, name="contact-page"),
+    path('result/<str:task_id>', views.check_result, name="check-result"),
+
 ]
