@@ -1,0 +1,354 @@
+[
+    {
+        "model": "course.Category",
+        "pk": 1,
+        "fields": {
+            "name": "Programming",
+            "slug": "programming"
+        }
+    },
+    {
+        "model": "course.Category",
+        "pk": 2,
+        "fields": {
+            "name": "Business",
+            "slug": "business"
+        }
+    },
+    {
+        "model": "course.Category",
+        "pk": 3,
+        "fields": {
+            "name": "Design",
+            "slug": "design"
+        }
+    },
+    {
+        "model": "course.Category",
+        "pk": 4,
+        "fields": {
+            "name": "Personal Development",
+            "slug": "personal-development"
+        }
+    },
+    {
+        "model": "course.Course",
+        "pk": 1,
+        "fields": {
+            "title": "Learn Python Basics",
+            "slug": "learn-python-basics",
+            "description": "A beginner-friendly course to understand Python fundamentals.",
+            "category": 1,
+            "price": "19.99",
+            "created_at": "2025-08-21T12:00:00Z"
+        }
+    },
+    {
+        "model": "course.Course",
+        "pk": 2,
+        "fields": {
+            "title": "JavaScript for Beginners",
+            "slug": "javascript-for-beginners",
+            "description": "Start coding with JavaScript step by step.",
+            "category": 1,
+            "price": "24.99",
+            "created_at": "2025-08-21T12:05:00Z"
+        }
+    },
+    {
+        "model": "course.Course",
+        "pk": 3,
+        "fields": {
+            "title": "C++ Fundamentals",
+            "slug": "cpp-fundamentals",
+            "description": "Master the basics of C++ with text-based lessons.",
+            "category": 1,
+            "price": "21.99",
+            "created_at": "2025-08-21T12:10:00Z"
+        }
+    },
+    {
+        "model": "course.Course",
+        "pk": 4,
+        "fields": {
+            "title": "Start Your Online Business",
+            "slug": "start-your-online-business",
+            "description": "Step-by-step guide on launching and running an online business.",
+            "category": 2,
+            "price": "29.99",
+            "created_at": "2025-08-21T12:15:00Z"
+        }
+    },
+    {
+        "model": "course.Course",
+        "pk": 5,
+        "fields": {
+            "title": "Digital Marketing Basics",
+            "slug": "digital-marketing-basics",
+            "description": "Learn how to reach customers through online marketing.",
+            "category": 2,
+            "price": "34.99",
+            "created_at": "2025-08-21T12:20:00Z"
+        }
+    },
+    {
+        "model": "course.Course",
+        "pk": 6,
+        "fields": {
+            "title": "UI/UX Design Principles",
+            "slug": "ui-ux-design-principles",
+            "description": "Understand the fundamentals of creating user-friendly designs.",
+            "category": 3,
+            "price": "27.99",
+            "created_at": "2025-08-21T12:25:00Z"
+        }
+    },
+    {
+        "model": "course.Course",
+        "pk": 7,
+        "fields": {
+            "title": "Graphic Design with Canva",
+            "slug": "graphic-design-canva",
+            "description": "Learn how to design social media posts and graphics with Canva.",
+            "category": 3,
+            "price": "14.99",
+            "created_at": "2025-08-21T12:30:00Z"
+        }
+    },
+    {
+        "model": "course.Course",
+        "pk": 8,
+        "fields": {
+            "title": "Time Management Mastery",
+            "slug": "time-management-mastery",
+            "description": "Boost productivity with proven time management strategies.",
+            "category": 4,
+            "price": "19.99",
+            "created_at": "2025-08-21T12:35:00Z"
+        }
+    },
+    {
+        "model": "course.Course",
+        "pk": 9,
+        "fields": {
+            "title": "Public Speaking Essentials",
+            "slug": "public-speaking-essentials",
+            "description": "Develop confidence and clarity in your speech.",
+            "category": 4,
+            "price": "23.99",
+            "created_at": "2025-08-21T12:40:00Z"
+        }
+    },
+    {
+        "model": "course.Course",
+        "pk": 10,
+        "fields": {
+            "title": "Creative Writing Workshop",
+            "slug": "creative-writing-workshop",
+            "description": "Learn to express yourself through stories and articles.",
+            "category": 4,
+            "price": "18.99",
+            "created_at": "2025-08-21T12:45:00Z"
+        }
+    },
+    {
+        "model": "course.Lesson",
+        "pk": 1,
+        "fields": {
+            "course": 1,
+            "title": "Introduction to Python",
+            "content": "Python is a high-level language with simple syntax.",
+            "order": 1
+        }
+    },
+    {
+        "model": "course.Lesson",
+        "pk": 2,
+        "fields": {
+            "course": 1,
+            "title": "Data Types",
+            "content": "Python supports int, float, str, list, dict, etc.",
+            "order": 2
+        }
+    },
+    {
+        "model": "course.Lesson",
+        "pk": 3,
+        "fields": {
+            "course": 2,
+            "title": "JavaScript Basics",
+            "content": "Variables, operators, and functions.",
+            "order": 1
+        }
+    },
+    {
+        "model": "course.Lesson",
+        "pk": 4,
+        "fields": {
+            "course": 2,
+            "title": "DOM Manipulation",
+            "content": "Learn to modify HTML elements with JS.",
+            "order": 2
+        }
+    },
+    {
+        "model": "course.Lesson",
+        "pk": 5,
+        "fields": {
+            "course": 3,
+            "title": "Intro to C++",
+            "content": "Learn about compiling and running C++ code.",
+            "order": 1
+        }
+    },
+    {
+        "model": "course.Lesson",
+        "pk": 6,
+        "fields": {
+            "course": 3,
+            "title": "Variables & Loops",
+            "content": "Understand for, while, and do-while loops.",
+            "order": 2
+        }
+    },
+    {
+        "model": "course.Lesson",
+        "pk": 7,
+        "fields": {
+            "course": 4,
+            "title": "Business Ideas",
+            "content": "Finding a profitable niche is the first step.",
+            "order": 1
+        }
+    },
+    {
+        "model": "course.Lesson",
+        "pk": 8,
+        "fields": {
+            "course": 4,
+            "title": "Website Setup",
+            "content": "Choose the right platform to launch.",
+            "order": 2
+        }
+    },
+    {
+        "model": "course.Lesson",
+        "pk": 9,
+        "fields": {
+            "course": 5,
+            "title": "SEO Basics",
+            "content": "Learn how search engines rank websites.",
+            "order": 1
+        }
+    },
+    {
+        "model": "course.Lesson",
+        "pk": 10,
+        "fields": {
+            "course": 5,
+            "title": "Social Media Marketing",
+            "content": "How to use social media to grow your business.",
+            "order": 2
+        }
+    },
+    {
+        "model": "course.Lesson",
+        "pk": 11,
+        "fields": {
+            "course": 6,
+            "title": "UI vs UX",
+            "content": "Understand the difference between UI and UX.",
+            "order": 1
+        }
+    },
+    {
+        "model": "course.Lesson",
+        "pk": 12,
+        "fields": {
+            "course": 6,
+            "title": "Wireframing",
+            "content": "Learn how to sketch app screens.",
+            "order": 2
+        }
+    },
+    {
+        "model": "course.Lesson",
+        "pk": 13,
+        "fields": {
+            "course": 7,
+            "title": "Intro to Canva",
+            "content": "Learn about Canva’s dashboard and templates.",
+            "order": 1
+        }
+    },
+    {
+        "model": "course.Lesson",
+        "pk": 14,
+        "fields": {
+            "course": 7,
+            "title": "Creating Social Media Posts",
+            "content": "Design Facebook and Instagram posts.",
+            "order": 2
+        }
+    },
+    {
+        "model": "course.Lesson",
+        "pk": 15,
+        "fields": {
+            "course": 8,
+            "title": "Goal Setting",
+            "content": "Use SMART goals to plan your time.",
+            "order": 1
+        }
+    },
+    {
+        "model": "course.Lesson",
+        "pk": 16,
+        "fields": {
+            "course": 8,
+            "title": "Prioritization",
+            "content": "Use Eisenhower Matrix to prioritize tasks.",
+            "order": 2
+        }
+    },
+    {
+        "model": "course.Lesson",
+        "pk": 17,
+        "fields": {
+            "course": 9,
+            "title": "Overcoming Stage Fear",
+            "content": "Techniques to reduce nervousness.",
+            "order": 1
+        }
+    },
+    {
+        "model": "course.Lesson",
+        "pk": 18,
+        "fields": {
+            "course": 9,
+            "title": "Speech Structure",
+            "content": "How to structure an effective talk.",
+            "order": 2
+        }
+    },
+    {
+        "model": "course.Lesson",
+        "pk": 19,
+        "fields": {
+            "course": 10,
+            "title": "Writing Basics",
+            "content": "Understanding narrative and descriptive writing.",
+            "order": 1
+        }
+    },
+    {
+        "model": "course.Lesson",
+        "pk": 20,
+        "fields": {
+            "course": 10,
+            "title": "Editing Your Work",
+            "content": "Learn how to polish your writing.",
+            "order": 2
+        }
+    }
+]
