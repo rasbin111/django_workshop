@@ -6,7 +6,7 @@ from asgiref.sync import async_to_sync
 
 
 class NotifyUserView(APIView):
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
 
     def post(self, request):
         message = request.data.get("message", "Default message")
