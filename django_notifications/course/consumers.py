@@ -7,7 +7,6 @@ class NotificationConsumer(AsyncWebsocketConsumer):
     async def connect(self):
 
         self.group_name = "user"
-        print(self.group_name)
         await self.channel_layer.group_add(self.group_name, self.channel_name)
         await self.accept()
 
