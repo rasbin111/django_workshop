@@ -67,4 +67,4 @@ To add elements to each tenants go to tenant.localhost:8000/admin
 
 
 ## Tutorial source
-[YouTube BugBtyes](https://www.youtube.com/watch?v=seTUY18ge38&t=222s)
+[YouTube: BugBtyes](https://www.youtube.com/watch?v=seTUY18ge38&t=222s)
